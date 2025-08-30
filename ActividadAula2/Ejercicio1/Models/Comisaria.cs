@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Ejercicio1.Models
 {
@@ -45,12 +47,31 @@ namespace Ejercicio1.Models
         }
         public void AsignarGuardia(int numero, int h1, int m1, int tiempoMinutos, Policia agente)
         {
+            Guardia unaGuardia = new Guardia();
+            unaGuardia.AsignarPolicia(agente, h1, m1, tiempoMinutos);
+            if(numero>=0 && numero < guardias.Length  )
+            {
+                if(guardias[numero] == null)
+                {
+                    guardias[numero] = unaGuardia;
 
+                }
+                else { MessageBox.Show("Esa guardia ya esta asignada!", "Atencion!"); }
+            }
         }
         public Incidente VerIncidente(int index)
         {
+            foreach (Incidente incidente in incidentes)
+            {
+                if (incidentes[index] == incidente) { return incidente; }
+            }
             return null;
+
+           
+
+
         }
 
+       
     }
 }
