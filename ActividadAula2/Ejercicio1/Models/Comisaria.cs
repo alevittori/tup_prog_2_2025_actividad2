@@ -19,7 +19,8 @@ namespace Ejercicio1.Models
 
         public bool AsignarPolicia(Policia unPolicia)
         {
-            return false;
+            agentes.Add(unPolicia);
+            return true;
         }
         public Policia VerAgente(int numPlaca)
         {
@@ -67,9 +68,18 @@ namespace Ejercicio1.Models
             }
             return null;
 
-           
+        }
 
+        public void ListarIncidente(ListBox lista)
+        {
+            
+            lista.Items.Clear();
+            foreach(Incidente i in incidentes)
+            {
+                lista.Items.Add(i.VerDescripcion());
+            }
 
+            
         }
 
        

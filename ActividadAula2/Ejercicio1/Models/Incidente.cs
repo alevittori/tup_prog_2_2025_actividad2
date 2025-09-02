@@ -28,12 +28,13 @@ namespace Ejercicio1.Models
 
         public string VerDescripcion()
         {
-            return $@" Incidente {TipoIncidente} ,
+            string descripcion = $@" Incidente {TipoIncidente} ,
                         Hora {Hora}:{Minuto},
                         Motivo {Motivo},
-                        Oficial a Cago {OficialACargo.VerDatos()}
-                        Persona {Sujeto.VerDatos()}
+                        Oficial a Cago {OficialACargo.Nombre}
+                        Persona {Sujeto.Nombre}
                     ";
+            return descripcion;
         }
 
     }
